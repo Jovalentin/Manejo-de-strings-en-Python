@@ -1,52 +1,52 @@
-# PYTHON STRINGS ASSIGNMENT
+# MANEJO DE STRINGS EN PYTHON
 """
-Name: Jose Valentin Alvarez Reyes
-Tuition: 2630144
-Group: 3
-"""
-
-# EXECUTIVE SUMMARY
-"""
-A string is a sequence of characters.
-Strings can be joined, compared, searched, and separated.
-Strings are immutable, so methods create new strings.
-strip() removes extra spaces.
-lower() and upper() change capitalization.
-split() separates text into a list.
-This assignment contains six basic string exercises.
+Nombre: Jose Valentin Alvarez Reyes
+Matrícula: 2630144
+Grupo: 3
 """
 
-# GOOD PRACTICES
+# RESUMEN EJECUTIVO
 """
-Use strip() to remove extra spaces.
-Use lower() to compare text.
-Use len() to count characters.
-Use for to repeat an action for each item.
-Use if to check a condition.
-Strings cannot be changed directly.
+Una cadena es una secuencia de caracteres.
+Las cadenas se pueden unir, comparar, buscar y separar.
+Las cadenas son inmutables, por lo que los métodos crean nuevas cadenas.
+strip() elimina espacios extra.
+lower() y upper() cambian la capitalización.
+split() separa el texto en una lista.
+Esta asignación contiene seis ejercicios básicos de cadenas.
+"""
+
+# BUENAS PRÁCTICAS
+"""
+Usar strip() para eliminar espacios extra.
+Usar lower() para comparar texto.
+Usar len() para contar caracteres.
+Usar for para repetir una acción por cada elemento.
+Usar if para verificar una condición.
+Las cadenas no se pueden modificar directamente.
 """
 
 """
-PROBLEM 1: FULL NAME FORMATTER
-Description: Format a name and display initials.
-Inputs: full_name.
-Outputs: formatted name and initials.
-Validations: at least two words.
-Tests: Normal: "jose valentin alvarez", Border: "roberto hernandez", Error: "   ".
+PROBLEMA 1: FORMATEADOR DE NOMBRE COMPLETO
+Descripción: Formatear un nombre y mostrar las iniciales.
+Entradas: full_name.
+Salidas: nombre formateado e iniciales.
+Validaciones: al menos dos palabras.
+Pruebas: Normal: "jose valentin alvarez", Límite: "roberto hernandez", Error: "   ".
 """
 
-print("PROBLEM 1: FULL NAME FORMATTER")
+print("PROBLEMA 1: FORMATEADOR DE NOMBRE COMPLETO")
 
-full_name = input("Enter your full name: ")
+full_name = input("Ingresa tu nombre completo: ")
 full_name = full_name.strip()
 name_parts = full_name.split()
 
 if full_name == "":
-    print("Error: name cannot be empty")
+    print("Error: el nombre no puede estar vacío")
 
 if full_name != "":
     if len(name_parts) < 2:
-        print("Error: enter at least two words")
+        print("Error: ingresa al menos dos palabras")
 
     if len(name_parts) >= 2:
         formatted_name = " ".join(name_parts).title()
@@ -55,25 +55,25 @@ if full_name != "":
         for word in name_parts:
             initials = initials + word[0].upper() + "."
 
-        print("Formatted name: " + formatted_name)
-        print("Initials: " + initials)
+        print("Nombre formateado: " + formatted_name)
+        print("Iniciales: " + initials)
 
 """
-PROBLEM 2: EMAIL VALIDATOR
-Description: Check a basic email format.
-Inputs: email_text.
-Outputs: validity and domain.
-Validations: one @, a dot in the domain, no spaces.
-Tests: Normal: "student@example.com", Border: "a@b.c", Error: "student example.com".
+PROBLEMA 2: VALIDADOR DE CORREO ELECTRÓNICO
+Descripción: Verificar un formato básico de correo electrónico.
+Entradas: email_text.
+Salidas: validez y dominio.
+Validaciones: un @, un punto en el dominio, sin espacios.
+Pruebas: Normal: "student@example.com", Límite: "a@b.c", Error: "student example.com".
 """
 
-print("\nPROBLEM 2: EMAIL VALIDATOR")
+print("\nPROBLEMA 2: VALIDADOR DE CORREO ELECTRÓNICO")
 
-email_text = input("Enter an email: ")
+email_text = input("Ingresa un correo electrónico: ")
 email_text = email_text.strip()
 
 if email_text == "":
-    print("Error: email cannot be empty")
+    print("Error: el correo no puede estar vacío")
 
 if email_text != "":
     valid_email = True
@@ -104,64 +104,64 @@ if email_text != "":
             valid_email = False
 
     if valid_email == True:
-        print("Valid email: true")
-        print("Domain: " + domain)
+        print("Correo válido: verdadero")
+        print("Dominio: " + domain)
 
     if valid_email == False:
-        print("Valid email: false")
+        print("Correo válido: falso")
 
 
 """
-PROBLEM 3: PALINDROME CHECKER
-Description: Check if a phrase reads the same backward.
-Inputs: phrase.
-Outputs: palindrome result.
-Validations: at least three characters.
-Tests: Normal: "Anita lava la tina", Border: "aba", Error: "   ".
+PROBLEMA 3: VERIFICADOR DE PALÍNDROMOS
+Descripción: Verificar si una frase se lee igual al derecho y al revés.
+Entradas: phrase.
+Salidas: resultado de palíndromo.
+Validaciones: al menos tres caracteres.
+Pruebas: Normal: "Anita lava la tina", Límite: "aba", Error: "   ".
 """
 
-print("\nPROBLEM 3: PALINDROME CHECKER")
+print("\nPROBLEMA 3: VERIFICADOR DE PALÍNDROMOS")
 
-phrase = input("Enter a phrase: ")
+phrase = input("Ingresa una frase: ")
 phrase = phrase.strip()
 
 if phrase == "":
-    print("Error: phrase cannot be empty")
+    print("Error: la frase no puede estar vacía")
 
 if phrase != "":
     clean_phrase = phrase.lower()
     clean_phrase = "".join(clean_phrase.split())
 
     if len(clean_phrase) < 3:
-        print("Error: enter at least three characters")
+        print("Error: ingresa al menos tres caracteres")
 
     if len(clean_phrase) >= 3:
         reverse_phrase = clean_phrase[::-1]
 
         if clean_phrase == reverse_phrase:
-            print("Is palindrome: true")
+            print("Es palíndromo: verdadero")
 
         if clean_phrase != reverse_phrase:
-            print("Is palindrome: false")
+            print("Es palíndromo: falso")
 
 
 """
-PROBLEM 4: SENTENCE WORD STATS
-Description: Count words and find the first, last,
-shortest, and longest words.
-Inputs: sentence.
-Outputs: word statistics.
-Validations: sentence cannot be empty.
-Tests: Normal: "Python makes coding fun", Border: "hello", Error: "   ".
+PROBLEMA 4: ESTADÍSTICAS DE PALABRAS EN UNA ORACIÓN
+Descripción: Contar palabras y encontrar la primera, última,
+más corta y más larga.
+Entradas: sentence.
+Salidas: estadísticas de palabras.
+Validaciones: la oración no puede estar vacía.
+Pruebas: Normal: "Python makes coding fun", Límite: "hello", Error: "   ".
 """
 
-print("\nPROBLEM 4: SENTENCE WORD STATS")
+print("\nPROBLEMA 4: ESTADÍSTICAS DE PALABRAS EN UNA ORACIÓN")
 
-sentence = input("Enter a sentence: ")
+sentence = input("Ingresa una oración: ")
 sentence = sentence.strip()
 
 if sentence == "":
-    print("Error: sentence cannot be empty")
+    print("Error: la oración no puede estar vacía")
 
 if sentence != "":
     words = sentence.split()
@@ -175,33 +175,33 @@ if sentence != "":
         if len(word) > len(longest_word):
             longest_word = word
 
-    print("Word count: " + str(len(words)))
-    print("First word: " + words[0])
-    print("Last word: " + words[-1])
-    print("Shortest word: " + shortest_word)
-    print("Longest word: " + longest_word)
+    print("Cantidad de palabras: " + str(len(words)))
+    print("Primera palabra: " + words[0])
+    print("Última palabra: " + words[-1])
+    print("Palabra más corta: " + shortest_word)
+    print("Palabra más larga: " + longest_word)
 
 
 """
-PROBLEM 5: PASSWORD STRENGTH
-Description: Classify a password as weak, medium,
-or strong.
-Inputs: password_input.
-Outputs: password strength.
-Rules:
-Strong: 8+ characters, uppercase, lowercase,
-digit, and symbol.
-Medium: 8+ characters and at least two types.
-Weak: does not meet the other rules.
-Tests: Normal: "GoodPass8!", Border: "Abcdef12", Error: "".
+PROBLEMA 5: FUERZA DE LA CONTRASEÑA
+Descripción: Clasificar una contraseña como débil, media
+o fuerte.
+Entradas: password_input.
+Salidas: fuerza de la contraseña.
+Reglas:
+Fuerte: 8+ caracteres, mayúscula, minúscula,
+dígito y símbolo.
+Media: 8+ caracteres y al menos dos tipos.
+Débil: no cumple las otras reglas.
+Pruebas: Normal: "GoodPass8!", Límite: "Abcdef12", Error: "".
 """
 
-print("\nPROBLEM 5: PASSWORD STRENGTH")
+print("\nPROBLEMA 5: FUERZA DE LA CONTRASEÑA")
 
-password_input = input("Enter a password: ")
+password_input = input("Ingresa una contraseña: ")
 
 if password_input == "":
-    print("Error: password cannot be empty")
+    print("Error: la contraseña no puede estar vacía")
 
 if password_input != "":
     has_upper = False
@@ -236,36 +236,36 @@ if password_input != "":
     if has_symbol == True:
         types_count = types_count + 1
 
-    strength = "weak"
+    strength = "débil"
 
     if len(password_input) >= 8:
         if types_count >= 2:
-            strength = "medium"
+            strength = "media"
 
         if has_upper and has_lower and has_digit and has_symbol:
-            strength = "strong"
+            strength = "fuerte"
 
-    print("Password strength: " + strength)
+    print("Fuerza de la contraseña: " + strength)
 
 
 """
-PROBLEM 6: PRODUCT LABEL
-Description: Create a product label with 30 characters.
-Inputs: product_name and price_text.
-Outputs: label with exactly 30 characters.
-Validations: name cannot be empty; price must be positive.
-Tests: Normal: "Pen", "12.50"; Border: "A", "1"; Error: "Pen", "zero".
+PROBLEMA 6: ETIQUETA DE PRODUCTO
+Descripción: Crear una etiqueta de producto con 30 caracteres.
+Entradas: product_name y price_text.
+Salidas: etiqueta con exactamente 30 caracteres.
+Validaciones: el nombre no puede estar vacío; el precio debe ser positivo.
+Pruebas: Normal: "Pen", "12.50"; Límite: "A", "1"; Error: "Pen", "zero".
 """
 
-print("\nPROBLEM 6: PRODUCT LABEL")
+print("\nPROBLEMA 6: ETIQUETA DE PRODUCTO")
 
-product_name = input("Enter a product name: ")
+product_name = input("Ingresa el nombre del producto: ")
 product_name = product_name.strip()
-price_text = input("Enter a positive price: ")
+price_text = input("Ingresa un precio positivo: ")
 price_text = price_text.strip()
 
 if product_name == "":
-    print("Error: product name cannot be empty")
+    print("Error: el nombre del producto no puede estar vacío")
 
 if product_name != "":
     price_check = price_text.replace(".", "")
@@ -296,13 +296,13 @@ if product_name != "":
             valid_price = False
 
     if valid_price == False:
-        print("Error: price must be a positive number")
+        print("Error: el precio debe ser un número positivo")
 
     if valid_price == True:
         price_display = "{:.2f}".format(price_value)
 
-        label = "Product: " + product_name
-        label = label + " | Price: $" + price_display
+        label = "Producto: " + product_name
+        label = label + " | Precio: $" + price_display
 
         if len(label) > 30:
             label = label[0:30]
@@ -311,37 +311,37 @@ if product_name != "":
             spaces = 30 - len(label)
             label = label + (" " * spaces)
 
-        print('Label: "' + label + '"')
-        print("Label length: " + str(len(label)))
+        print('Etiqueta: "' + label + '"')
+        print("Longitud de la etiqueta: " + str(len(label)))
 
 
 
-# CONCLUSIONS
+# CONCLUSIONES
 """
-Strings help us process and display text.
-strip() removes extra spaces.
-lower() changes letters to lowercase.
-split() separates text into words.
-for repeats actions for each item.
-if checks whether a condition is true.
-Slicing extracts or reverses part of a string.
-Validations help prevent incorrect input.
+Las cadenas nos ayudan a procesar y mostrar texto.
+strip() elimina espacios extra.
+lower() cambia las letras a minúsculas.
+split() separa el texto en palabras.
+for repite acciones por cada elemento.
+if verifica si una condición es verdadera.
+El slicing extrae o invierte parte de una cadena.
+Las validaciones ayudan a prevenir entradas incorrectas.
 """
 
-# REFERENCES
+# REFERENCIAS
 """
-1. Python Documentation - Text Sequence Type: str
+1. Documentación de Python - Tipo de secuencia de texto: str
 https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str
 
-2. Python Documentation - Built-in Functions
+2. Documentación de Python - Funciones integradas
 https://docs.python.org/3/library/functions.html
 
-3. Python Tutorial - Introduction
+3. Tutorial de Python - Introducción
 https://docs.python.org/3/tutorial/introduction.html
 
-4. Python Tutorial - Input and Output
+4. Tutorial de Python - Entrada y salida
 https://docs.python.org/3/tutorial/inputoutput.html
 
-5. Python Tutorial - Errors and Exceptions
+5. Tutorial de Python - Errores y excepciones
 https://docs.python.org/3/tutorial/errors.html
 """
